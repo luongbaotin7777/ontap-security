@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@LuongBaoTin:1521:orcl
+    username: system
+    password: 1234567
+    driver-class-name: oracle.jdbc.OracleDriver
+  security:
+    jwt:
+      secret: "pgw2sywtfihaQcACJ8D4IEgFADgreuGd71MAv08D2pZFTg1O3RzAj5S5Q4I6xjFXgE/aB76LVrNJbY2LpMV/KQ=="
+      access-token-expiration: 3600000  # 1 hour
+      refresh-token-expiration: 86400000 # 1 day
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: update  # auto update table from entity
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
